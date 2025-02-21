@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:3333
+@Content-Type= application/json
+
+# @name subscriptions
+POST {{baseUrl}}/subscriptions HTTP/1.1
+Content-Type: {{Content-Type}}
+
+{
+  "name": "user",
+  "email": "email@example.com",
+  "referrerId": null
+}
+
+###
+
+# @name invites
+@subscriberId = {{subscriptions.response.body.subscriberId}}
+GET {{baseUrl}}/invites/{{subscriberId}} HTTP/1.1
+
+###
+
+# @name invite-clicks
+@subscriberId = {{subscriptions.response.body.subscriberId}}
+GET {{baseUrl}}/subscribers/{{subscriberId}}/ranking/clicks HTTP/1.1
+
+###
+
+# @name ranking-count
+@subscriberId = {{subscriptions.response.body.subscriberId}}
+GET {{baseUrl}}/subscribers/{{subscriberId}}/ranking/count HTTP/1.1
+
+###
+
+# @name ranking-position
+@subscriberId = {{subscriptions.response.body.subscriberId}}
+GET {{baseUrl}}/subscribers/{{subscriberId}}/ranking/position HTTP/1.1
+
+###
+
+# @name ranking-list
+GET {{baseUrl}}/subscribers/ranking HTTP/1.1
