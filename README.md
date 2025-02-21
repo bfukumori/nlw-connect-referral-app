@@ -2,7 +2,7 @@
 
 O projeto é a construção da API de um site responsivo de inscrição e indicação para eventos.
 
-Esse é um projeto do evento NLW Connect, promovido pela ROcketseat em 2025.
+Esse é um projeto do evento NLW Connect, promovido pela Rocketseat em 2025.
 
 ## Figma
 
